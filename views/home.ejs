@@ -1,0 +1,29 @@
+
+    <%- include('partials/header.ejs') %>
+
+    <div class="home-container">
+        <h1>Home</h1>
+        <p>
+        <%= homeStartingContent %>
+        </p>
+    </div>
+
+    <hr>
+
+    <div class="content-container">
+        <% posts.forEach(post => { %>
+            <div class="individual-post">
+                <h1>
+                    <%= post.title %>
+                </h1>
+                <p>
+                    <%= post.postContent.substring(0,100) + " ..." %>
+                </p>
+                <button class="btn btn-default">
+                    <a href="/post/<%=post.title%>">Read More</a>
+                </button>
+            </div>
+        <% }) %>
+    </div>
+
+    <%- include('partials/footer.ejs') %>
